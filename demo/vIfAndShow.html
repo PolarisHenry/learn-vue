@@ -11,20 +11,25 @@
     * {
         margin: 0;
         padding: 0;
-        text-align: center;
         line-height: 100px;
+        text-align: center;
+        text-wrap: nowrap;
+    }
+
+    div {
+        width: 100px;
+        height: 100px;
+        margin-top: 20px;
+        background-color: pink;
+
     }
 
     div.vif {
-        width: 100px;
-        height: 100px;
+
         background-color: red;
     }
 
     div.vshow {
-        width: 100px;
-        height: 100px;
-        margin-top: 20px;
         background-color: skyblue;
     }
 </style>
@@ -33,6 +38,11 @@
     <div id="app">
         <div class="vif" v-if="flag">显示与隐藏</div>
         <div class="vshow" v-show="flag">条件渲染</div>
+        <div>
+            <span v-if="score >=90">奖励你一台电脑哟</span>
+            <span v-else-if="score >=80">奖励你出去玩</span>
+            <span v-else>奖励你大耳刮子</span>
+        </div>
     </div>
 
 
@@ -41,8 +51,9 @@
     const app = new Vue({
         el: '#app',
         data: {
-            flag: true
+            flag: true,
             // flag: false
+            score: 79
         }
     })
 </script>
