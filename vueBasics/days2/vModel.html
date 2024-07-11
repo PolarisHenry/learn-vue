@@ -4,32 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>v-bind=""</title>
+    <title>vModel</title>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.min.js"></script>
 </head>
 <style>
     * {
         margin: 0;
         padding: 0;
-        text-align: center;
-        font-size: 20px;
-
-        line-height: 100px;
-    }
-
-    button {
-        width: 100px;
-        height: 100px;
-        background-color: pink;
     }
 </style>
 
 <body>
     <div class="app">
-        <!-- v-bind写法,也可以写:事件-->
-        <img v-bind:src="path" alt="">
-        <img :src="path" alt="">
+        <div>账号：<input type="username" v-model="username"></div>
+        <div>密码：<input type="password" v-model="password"></div>
+        <div>余额：<input type="text" v-model="fee"></div>
+        <div>您的余额是：{{fee}}</div>
     </div>
+
 
 
 </body>
@@ -37,7 +29,9 @@
     const app = new Vue({
         el: '.app',
         data: {
-            path: '/Users/lihengli/docmanager/study/Javascript/html/demo/京东/favicon.icon',
+            username: '',
+            password: '',
+            fee: 100
 
         },
         methods: {
@@ -45,9 +39,9 @@
                 this.count = this.count + 20
                 this.flag = !this.flag
 
-            },
+            }
 
-        }
+        },
     })
 
 </script>
