@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vFor</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.min.js"></script>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+</style>
+
+<body>
+    <div class="app">
+        <!-- v-for写法 (item,index) in list/object，index不要可以去掉-->
+        <div>
+            <ul>
+                <li v-for="item in fruits">{{item}}</li>
+            </ul>
+        </div>
+    </div>
+
+
+
+</body>
+<script>
+    const app = new Vue({
+        el: '.app',
+        data: {
+            fruits: ['苹果', '香蕉', '梨'],
+
+        },
+        methods: {
+            add() {
+                this.count = this.count + 20
+                this.flag = !this.flag
+
+            }
+
+        },
+    })
+
+</script>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-bind=""</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.min.js"></script>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        font-size: 20px;
+
+        line-height: 100px;
+    }
+
+    button {
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+    }
+</style>
+
+<body>
+    <div class="app">
+        <!-- v-bind写法,也可以写:事件-->
+        <img :src="path" alt="">
+    </div>
+
+
+</body>
+<script>
+    const app = new Vue({
+        el: '.app',
+        data: {
+            path: '/Users/lihengli/docmanager/study/Javascript/html/demo/京东/favicon.icon',
+
+        },
+        methods: {
+            add() {
+                this.count = this.count + 20
+                this.flag = !this.flag
+
+            },
+
+        }
+    })
+
+</script>
+
+</html>
