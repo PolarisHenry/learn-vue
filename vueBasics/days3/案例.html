@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>书库案例</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.min.js"></script>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    #app {
+        width: 200px;
+        margin: 0 auto
+    }
+
+    #app div {
+        width: 100%;
+        margin-top: 50px;
+        margin-bottom: 25px;
+    }
+
+    input {
+        height: 25px;
+        vertical-align: bottom;
+        box-sizing: border-box;
+    }
+
+    li button {
+        height: 50px;
+        background-color: pink;
+    }
+
+    li {
+        width: 100%;
+        list-style: none;
+        border: 1px solid gray;
+    }
+</style>
+
+<body>
+    <div id="app">
+        <div><input type="text" placeholder="请输入书名" v-model="addBookName" @keyup.enter="add">
+            <input type="button" value="添加" @click="add"></input>
+        </div>
+        <ul>
+            <li v-for="(item, index) in books" :key="index">{{ item.name }}
+                <button @click="del(item.id)">删除</button>
+            </li>
+        </ul>
+    </div>
+
+
+
+</body>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            count: 100,
+            addBookName: '',
+            books: [
+                { id: 1, name: '《算法导论》', price: 50 },
+                { id: 2, name: '《蛙》', price: 50 },
+                { id: 3, name: '《云边有个小卖部》', price: 50 },
+                { id: 4, name: '《人类简史》', price: 50 },
+                { id: 5, name: '《幽微的人性》', price: 50 },
+                { id: 6, name: '《十宗罪》', price: 50 }
+            ]
+
+        },
+        methods: {
+            add() {
+                if (this.addBookName !== '') {
+
+                    this.books.push({
+                        id: this.books.length + 1,
+                        name: this.addBookName,
+                        price: 50
+                    })
+                    this.addBookName = ''
+                }
+            },
+            del(id) {
+
+                this.books = this.books.filter(x => x.id !== id)
+            }
+
+        }
+    })
+
+</script>
+
+</html>
