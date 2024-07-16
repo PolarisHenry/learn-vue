@@ -44,6 +44,8 @@
             </tr>
         </table>
         <p>所有书的价格是：{{totalPrice}}</p>
+        <input type="text">修改总价</input><input type="button" value="确认修改" @click="upd">
+        <p>所有书的价格是，复杂的写法：{{totalPriceComplex}}</p>
     </div>
 
 
@@ -78,18 +80,34 @@
                 }
             },
             del(id) {
-
                 this.books = this.books.filter(x => x.id !== id)
+            },
+            upd() {
+                this.totalPriceComplex = 9900;
             }
 
         },
         computed: {
 
             totalPrice() {
+                // 这个是简写的，简写的计算属性只有获取的功能
                 console.log('执行了计算属性,但是哥们只会调用一次');
                 let total = 0
                 total = this.books.reduce((total, item) => total + item.price, 0)
                 return total
+            },
+
+            totalPriceComplex: {
+                // 这个是完整的写法
+                get() {
+                    let total = 0
+                    total = this.books.reduce((total, item) => total + item.price, 0)
+                    return total
+                }, set(value) {
+                    this.books.forEach(item => {
+                        item.price = value
+                    })
+                }
             }
         }
     })
