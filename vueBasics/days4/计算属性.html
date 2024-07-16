@@ -58,7 +58,8 @@
                 { id: 4, name: '《人类简史》', price: 50 },
                 { id: 5, name: '《幽微的人性》', price: 50 },
                 { id: 6, name: '《十宗罪》', price: 50 }
-            ]
+            ],
+            total: 0
 
         },
         methods: {
@@ -69,7 +70,6 @@
                         id: this.books.length + 1,
                         name: this.addBookName,
                         price: 50,
-                        total: 0
                     })
                     this.addBookName = ''
                 }
