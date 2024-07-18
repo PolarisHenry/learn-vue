@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>watch监听完整版</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.min.js"></script>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    #app {
+        width: 400px;
+        margin: 0 auto;
+        text-align: center
+    }
+</style>
+
+<body>
+    <div id="app">
+        <textarea v-model="obj.words"></textarea>
+        <textarea v-model="wacthStr"></textarea>
+    </div>
+
+
+
+</body>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+
+            obj: { words: 'wacth的完整写法' },
+            wacthStr: ''
+        },
+        watch: {
+            obj: {
+                deep: true,
+                immediate: true,
+                /* handler(newValue, oldValue) {
+                    setTimeout(() => {
+                        console.log(newValue, oldValue)
+                        this.wacthStr = `新的值：${newValue.words}\n旧的值：${oldValue.words}`
+                    }, 500);
+                } */
+                handler(newValue) {
+                    setTimeout(() => {
+                        console.log(newValue)
+                        this.wacthStr = `新的值：${newValue.words}`
+                    }, 300);
+                }
+            }
+        }
+    })
+
+</script>
+
+</html>
