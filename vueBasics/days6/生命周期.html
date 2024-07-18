@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue生命周期</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.min.js"></script>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    #app {
+        width: 400px;
+        margin: 0 auto;
+        text-align: center
+    }
+</style>
+
+<body>
+    <div id="app">
+        <textarea v-model="word"></textarea>
+        <textarea v-model="wacthStr"></textarea>
+    </div>
+
+
+
+</body>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+
+            word: '',
+            wacthStr: ''
+        }
+    })
+
+</script>
+
+</html>
