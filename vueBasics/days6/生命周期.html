@@ -36,7 +36,27 @@
 
             word: '',
             wacthStr: ''
+        },
+        beforeCreate() {
+            console.log('beforeCreate');
+        },
+        created() {
+            console.log('created：可以发送初始化的渲染请求');
+        }, beforeMount() {
+            console.log('beforeMount');
+        },
+        mounted() {
+            console.log('mounted：可以操作DOM了');
+        }, beforeUpdate() {
+            console.log('beforeUpdate');
+        }, updated() {
+            console.log('updated');
+        }, beforeDestroy() {
+            console.log('beforeDestroy：可以开始释放VUE以外的资源，清除定时器，延时器');
+        }, destroyed() {
+            console.log('destroyed');
         }
+
     })
 
 </script>
