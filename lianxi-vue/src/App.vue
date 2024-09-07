@@ -1,16 +1,17 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import Propos from "./components/Propos.vue";
-import Emit from "./components/Emit.vue";
 import Parent from "./components/Parent.vue";
 import { ref } from "vue";
+
 const posts = ref([
   { id: 1, title: 'My journey with Vue' },
   { id: 2, title: 'Blogging with Vue' },
   { id: 3, title: 'Why Vue is so fun' }
 ])
 
-const returnStr = () => { return '我是一个表达式' }
+// const returnStr = () => { return '我是一个表达式' }
+const returnStr = function () { return '我是一个表达式' }
+
 </script>
 
 <template>
@@ -28,7 +29,7 @@ const returnStr = () => { return '我是一个表达式' }
     </div>
   </header>
   <Emit tan="我要学会vue" @tan="console.log('组件通信')"></Emit>
-  <Emit :tan="returnStr" @tan="console.log('组件通信')"></Emit>
+  <Emit :tan="returnStr()" @tan="console.log('组件通信')"></Emit>
   <br>
   <Parent></Parent>
   <RouterView />
