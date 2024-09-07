@@ -1,6 +1,16 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import Propos from "./components/Propos.vue";
+import Emit from "./components/Emit.vue";
+import Parent from "./components/Parent.vue";
+import { ref } from "vue";
+const posts = ref([
+  { id: 1, title: 'My journey with Vue' },
+  { id: 2, title: 'Blogging with Vue' },
+  { id: 3, title: 'Why Vue is so fun' }
+])
+
+const returnStr = () => { return '我是一个表达式' }
 </script>
 
 <template>
@@ -11,13 +21,16 @@ import HelloWorld from './components/HelloWorld.vue'
       <HelloWorld msg="You did it!" />
 
       <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
         <router-link to="/MyFirstView">MyFirstView</router-link>
+        <Propos title="我怎么知道你要干嘛啊？"></Propos>
+        <Propos v-for="(item, index) in posts" :key="index" :title="item.title"></Propos>
       </nav>
     </div>
   </header>
-
+  <Emit tan="我要学会vue" @tan="console.log('组件通信')"></Emit>
+  <Emit :tan="returnStr" @tan="console.log('组件通信')"></Emit>
+  <br>
+  <Parent></Parent>
   <RouterView />
 </template>
 
@@ -75,7 +88,7 @@ nav a:first-of-type {
   }
 
   nav {
-    text-align: left;
+    text-align: top;
     margin-left: -1rem;
     font-size: 1rem;
 
